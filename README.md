@@ -1,43 +1,13 @@
-# Raspberry Pi 3 Model A+ Gadget!
-
-[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_rpi3a.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_rpi3a)
-[![Hex version](https://img.shields.io/hexpm/v/nerves_system_rpi3a.svg "Hex version")](https://hex.pm/packages/nerves_system_rpi3a)
+# Raspberry Pi Zero 2 Gadget!
 
 ## VERY NEW -> May have issues
 
-This is the base Nerves System configuration for the Raspberry Pi 3 Model A+
+This is the base Nerves System configuration for the Raspberry Pi Zero 2
 with the USB port running in gadget mode.
 
-![Raspberry Pi 3 A+ image](assets/images/rpi_a_plus.png)
-<br><sup>[Image credit](#rpi)</sup>
+## Special note about kernel version for this system
 
-| Feature              | Description                     |
-| -------------------- | ------------------------------- |
-| CPU                  | 1.4 GHz quad-core ARM Cortex-A53|
-| Memory               | 512 MB DRAM                     |
-| Storage              | MicroSD                         |
-| Linux kernel         | 5.10 w/ Raspberry Pi patches    |
-| IEx terminal         | UART `ttyAMA0` Can be changed to HDMI |
-| GPIO, I2C, SPI       | Yes - [Elixir Circuits](https://github.com/elixir-circuits) |
-| ADC                  | No                              |
-| PWM                  | Yes, but no Elixir support      |
-| UART                 | 1 available - `ttyAMA0`         |
-| Display              | HDMI or 7" RPi Touchscreen      |
-| Camera               | Yes - via rpi-userland          |
-| Ethernet             | No                              |
-| WiFi                 | Yes                             |
-| Bluetooth            | [See Bluetooth](#bluetooth)     |
-| Audio                | HDMI/Stereo out                 |
-
-## Gadget mode!
-
-The Raspberry Pi 3 Model A+ is supported by the official
-[nerves_system_rpi3](https://github.com/nerves-project/nerves_system_rpi3), but
-the USB port is configured to work as a host only. This Raspberry Pi can be
-connected directly to your computer via a USB cable like the Raspberry Pi Zeros.
-To do this, you'll need a USB A to USB A connector like
-[this](https://www.monoprice.com/product?p_id=5443) or
-[this](https://www.microcenter.com/product/431166/usb-a-to-a-high-speed-development-board-cable).
+The version of raspberrypi/linux used in this system is very new and there has not been a release of it yet. As a result, I had to download the tarball directly from https://github.com/raspberrypi/linux/tarball/bad3872df40dd9a4ba7ff239c17288a7a84a80f9 and place it into the right place (`~/.nerves/dl/linux/linux-raspberrypi-kernel_bad3872df40dd9a4ba7ff239c17288a7a84a80f9.tar.gz`). I think there's a correct way to do this that will allow automatic download of that file, but my memory is a little out of date on it and I settled for the manual step for now as a stopgap.
 
 ## Using
 
@@ -52,13 +22,13 @@ systems](https://hexdocs.pm/nerves/customizing-systems.html).
 
 ## Supported WiFi devices
 
-The base image includes drivers for the onboard Raspberry Pi 3 A+ wifi module
+The base image includes drivers for the onboard Raspberry Pi Zero 2 wifi module
 (`brcmfmac` driver).
 
 ## Bluetooth
 
 [BlueHeronTransportUART](https://github.com/blue-heron/blue_heron_transport_uart)
-supports bluetooth on the Pi 3A using `ttyS0`. The details are similar to the [RPi Zero W]
+supports bluetooth on the Pi Zero 2 using `ttyS0`. The details are similar to the [RPi Zero W]
 (https://github.com/nerves-project/nerves_system_rpi0/issues/224#issuecomment-913799838).
 
 ## Audio
@@ -159,8 +129,6 @@ take versions of the repositories that have similar commit times.
 
 If you're new to Nerves, check out the
 [nerves_init_gadget](https://github.com/nerves-project/nerves_init_gadget) project for
-creating a starter project for the Raspberry Pi 3 Model A+. It will get you
+creating a starter project for the Raspberry Pi Zero 2. It will get you
 started with the basics like bringing up the virtual Ethernet interface,
 initializing the application partition, and enabling ssh-based firmware updates.
-
-[Image credit](#rpi): This image is from [raspberrypi.org](https://www.raspberrypi.org/products/raspberry-pi-3-model-a-plus/).

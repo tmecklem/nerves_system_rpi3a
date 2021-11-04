@@ -1,8 +1,8 @@
-defmodule NervesSystemRpi3a.MixProject do
+defmodule TmecklemSystemRpiZero2.MixProject do
   use Mix.Project
 
-  @github_organization "nerves-project"
-  @app :nerves_system_rpi3a
+  @github_organization "tmecklem"
+  @app :tmecklem_system_rpi_zero_2
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
@@ -74,7 +74,7 @@ defmodule NervesSystemRpi3a.MixProject do
 
   defp description do
     """
-    Nerves System - Raspberry Pi 3 A+
+    Nerves System - Raspberry Pi Zero 2
     """
   end
 
